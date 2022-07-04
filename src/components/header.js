@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { icons } from "../assets";
 import { neutrals } from "../utils";
@@ -11,13 +12,28 @@ export function Header() {
   ];
   const companyItems = ["History", "Our Team", "Blog"];
 
+  const [showNav, setShowNav] = useState(false);
+
   return (
     <StyledHeader>
       <Title>snap</Title>
-      <NavToggle href='#'>
+      <NavToggle
+        href='#'
+        onClick={() => {
+          setShowNav(true);
+        }}
+      >
         <img src={icons.menu} alt='' />
       </NavToggle>
-      <Navigation>
+      <Navigation showNav={showNav}>
+        <CloseNavToggle
+          href='#'
+          onClick={() => {
+            setShowNav(false);
+          }}
+        >
+          <img src={icons.closeMenu} alt='' />
+        </CloseNavToggle>
         <NavList>
           <li>
             <DropdownLink href='#'>
@@ -48,12 +64,11 @@ export function Header() {
               ))}
             </DropdownList>
           </li>
-          <li>
-            <BaseLink href='#'>Careers</BaseLink>
-          </li>
-          <li>
-            <BaseLink href='#'>About</BaseLink>
-          </li>
+          {["Careers", "About"].map((item, index) => (
+            <li key={index}>
+              <BaseLink href='#'>{item}</BaseLink>
+            </li>
+          ))}
           <ProfileLinksGroup>
             <CenteredListItem>
               <BaseLink href='#'>Login</BaseLink>
@@ -76,6 +91,10 @@ const StyledHeader = styled.header`
   cursor: pointer;
 `;
 
+const Title = styled.h1`
+  margin-top: 1rem;
+`;
+
 const Navigation = styled.nav`
   background-color: ${neutrals.almostWhite};
   width: 70%;
@@ -83,18 +102,18 @@ const Navigation = styled.nav`
   right: 0;
   top: 0;
   bottom: 0;
-  padding-inline: 1rem;
-  transform: translateX(100%);
+  padding-inline: 2rem;
+  transform: translateX(${({ showNav }) => (showNav ? "0" : "100%")});
 `;
 
-const Title = styled.h1`
-  margin-top: 1rem;
-`;
+const NavToggle = styled.a``;
 
-const NavToggle = styled.a`
-  &:focus + ${Navigation} {
-    transform: initial;
-  }
+const CloseNavToggle = styled.a`
+  display: inline-block;
+  width: 2rem;
+  position: relative;
+  left: 90%;
+  margin: 1rem 0 0.5rem 0;
 `;
 
 const NavList = styled.ul`
