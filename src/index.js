@@ -17,7 +17,7 @@ const Layout = styled.div`
 `;
 
 root.render(
-  <div style={{ maxWidth: "1024px", marginInline: "auto" }}>
+  <div style={{ maxWidth: "1366px", marginInline: "auto" }}>
     <GlobalStyles />
     <Header />
     <Layout>
