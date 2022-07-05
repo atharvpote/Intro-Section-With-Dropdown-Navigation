@@ -1,5 +1,5 @@
-import heroDesktop from "./images/image-hero-desktop.png";
-import heroMobile from "./images/image-hero-mobile.png";
+import heroDesktop from "./images/image-hero-desktop.webp";
+import heroMobile from "./images/image-hero-mobile.webp";
 import audiophile from "./clients/client-audiophile.svg";
 import databiz from "./clients/client-databiz.svg";
 import maker from "./clients/client-maker.svg";
