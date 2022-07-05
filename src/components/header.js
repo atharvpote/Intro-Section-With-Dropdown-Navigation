@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
 import { icons } from "../assets";
-import { neutrals } from "../utils";
+import { neutrals, typeScale } from "../utils";
 
 export function Header() {
   const features = [
@@ -173,6 +173,10 @@ const BaseLink = styled.a`
   text-decoration: none;
   color: ${neutrals.mediumGrey};
   cursor: pointer;
+
+  @media (min-width: 720px) {
+    font-size: ${typeScale.helperText};
+  }
 `;
 
 const CenteredListItem = styled.li`
@@ -180,7 +184,7 @@ const CenteredListItem = styled.li`
 `;
 
 const BorderedLink = styled(BaseLink)`
-  border: 3px solid ${neutrals.mediumGrey};
+  border: 2px solid ${neutrals.mediumGrey};
   padding-block: 0.75rem;
   border-radius: 10px;
   margin-block: 0.25rem;
@@ -214,6 +218,10 @@ const DropdownLink = styled(BaseLink)`
   align-items: center;
   gap: 3%;
 
+  @media (min-width: 720px) {
+    gap: 5%;
+  }
+
   img {
     max-width: 0.5rem;
   }
@@ -225,7 +233,7 @@ const DropdownLink = styled(BaseLink)`
     opacity: 1;
 
     @media (min-width: 720px) {
-      width: 150%;
+      width: 110%;
       padding: 1rem;
       box-shadow: 0 0 10px 2px ${neutrals.mediumGrey};
       border-radius: 10px;
@@ -248,7 +256,7 @@ const DropdownLink = styled(BaseLink)`
     height: 154.8px;
 
     @media (min-width: 720px) {
-      height: calc(35px * 4);
+      height: calc(30px * 4);
     }
   }
 

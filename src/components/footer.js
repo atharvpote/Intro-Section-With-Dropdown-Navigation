@@ -32,6 +32,11 @@ export function Footer() {
 
 const StyledFooter = styled.footer`
   padding: 1rem;
+
+  @media (min-width: 720px) {
+    width: 100%;
+    grid-row: 4 / 5;
+  }
 `;
 
 const ClientList = styled.ul`
