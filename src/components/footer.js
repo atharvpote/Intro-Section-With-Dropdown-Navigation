@@ -2,29 +2,23 @@ import styled from "styled-components";
 import { clients } from "../assets";
 
 export function Footer() {
+  const allClients = [
+    { name: "databiz", icon: clients.databiz },
+    { name: "audiophile", icon: clients.audiophile },
+    { name: "meet", icon: clients.meet },
+    { name: "maker", icon: clients.maker },
+  ];
+
   return (
     <StyledFooter>
       <ClientList>
-        <li>
-          <a href='#'>
-            <img src={clients.databiz} alt='databiz' />
-          </a>
-        </li>
-        <li>
-          <a href='#'>
-            <img src={clients.audiophile} alt='audiophile' />
-          </a>
-        </li>
-        <li>
-          <a href='#'>
-            <img src={clients.meet} alt='meet' />
-          </a>
-        </li>
-        <li>
-          <a href='#'>
-            <img src={clients.maker} alt='maker' />
-          </a>
-        </li>
+        {allClients.map(({ name, icon }, index) => (
+          <li key={index}>
+            <a href="#">
+              <img src={icon} alt={name} />
+            </a>
+          </li>
+        ))}
       </ClientList>
     </StyledFooter>
   );

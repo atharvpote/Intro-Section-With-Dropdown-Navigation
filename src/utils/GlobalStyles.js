@@ -21,6 +21,8 @@ body{
     font-weight: ${weightScale.medium};
     color: ${neutrals.almostBlack};
     background-color: ${neutrals.almostWhite};
+    max-width: 1366px;
+    margin-inline: auto;
 }
 
 img{
